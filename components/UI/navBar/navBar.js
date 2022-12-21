@@ -2,11 +2,12 @@ import React, {useState} from "react";
 import styles from './navBar.module.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import {AiOutlineMenu} from 'react-icons/ai';
+import {HiUserCircle} from 'react-icons/hi';
 
 
 const navBar = (props) => {
 
-    const [nav, setNav] = useState(false);
+    const [nav, setNav] = useState(true);
 
     const openMenu = () =>{
         if(nav === false){
@@ -20,21 +21,18 @@ const navBar = (props) => {
     return(
         <div className={styles.container_menu}>
             <div className={styles.navBarTop}>
-                <div className={styles.containerIconMenu}>
-                    <AiOutlineMenu className={styles.iconMenu} onClick={openMenu}/>
+                <div className={nav === false ? styles.containerIconMenu : styles.containerIconMenuHover}>
+                    <AiOutlineMenu className={styles.icon_meu_navBarTop} onClick={openMenu}/>
                 </div>
 
                 <nav className={nav === false ?  styles.navBar_none : styles.navBar_menu}>
                     <div className={styles.info}>
-                        <div className={styles.containerIconMenu}>
+                        <div className={nav === true ? styles.containerIconMenu : styles.iconMenuHover}>
                             <AiOutlineMenu className={styles.iconMenu} onClick={openMenu}/>
                         </div>
-                        {/* <div className={styles.containerIconMenu}>
-                            <MenuIcon onClick={openMenu} className={styles.iconMenu} />
-                        </div>
                         <div className={styles.containerIconUser}>
-                            <AiOutlineMenu/>
-                        </div> */}
+                            <HiUserCircle className={styles.uSerIcon}/>
+                        </div>
                         <a>Usuário logado:   Vitor Hugo</a>
                     </div>
                     <ul className={styles.navBar_menu_Ul}>
