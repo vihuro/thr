@@ -15,6 +15,7 @@
     text-align: left;
     margin-top: 12px;
     margin-left: 10px;
+
 }
 
 .icon_meu_navBarTop:hover{
@@ -32,16 +33,13 @@
     top: 0px;
     box-shadow: 0px 0px 40px 4px rgb(155, 152, 152);
 
-    transition:  1s;
+    transition:  2s;
 
 
     transform: translateX(0%) rotateY(0deg);
     transform-origin: left;
 
 
-
-
-    z-index: 1;
 }
 
 
@@ -56,23 +54,16 @@
     display: block;
     top: 0px;
     box-shadow: 0px 0px 40px 4px rgb(155, 152, 152);
-    z-index: 1;
+
     left: 0%;
 
     transform: translateX(-40%) rotateY(-90deg);
     transform-origin: left;
 
 
-    transition:  1s;
-
-    transform-origin: left;
-
-
-
-    opacity: 1;
+    transition:  2s;
 
 }
-
 
 
 .info {
@@ -80,20 +71,24 @@
 }
 
 .containerIconMenu{
-    padding-right: 7px;
     height: 100%;
+    width: 200px;
+    transition: 1.9s;
+
 }
 
 .iconMenuHover{
-    transform: translateX(-20px);
-    transition: 1s;
+    transform: translateX(-20px) rotateY(0deg);
+    transition: 5s;
 }
 
 
 .containerIconMenuHover{
-    margin-right: 120px;
-    transform: translateX(120px);
-    transition: 1s;
+    transform: translateX(0px) rotateY(-90deg);
+    width: 170px;
+    transition: 1.4s;
+    transform-origin: right;
+
 }
 
 .containerIconUser{
@@ -128,7 +123,7 @@
     transition: 0.7s;
 }
 
-.navBar_menu a{
+.navBar_menu a, .navBar_none a{
     display: block;
     padding-bottom: 20px;
     font-size: 13px;
@@ -137,14 +132,14 @@
 
 
 
-.navBar_menu li{
+.navBar_menu li , .navBar_none li{
     padding: 10px 0px 10px 5px;
     padding-bottom: 10px;
     text-align: center;
 
 }
 
-.navBar_menu ul ul{
+.navBar_menu ul ul , .navBar_none ul ul{
     /* display: none; */
     background-color: rgb(43, 208, 226);
 }
