@@ -15,9 +15,7 @@ const navBar = (props) => {
             setNav(false);
         }
     }
-
-
-
+    
     return(
         <div className={styles.container_menu}>
             <div className={styles.navBarTop}>
