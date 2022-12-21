@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import styles from './navBar.module.css'
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import {AiOutlineMenu} from 'react-icons/ai';
+
 
 const navBar = (props) => {
 
@@ -19,15 +20,21 @@ const navBar = (props) => {
     return(
         <div className={styles.container_menu}>
             <div className={styles.navBarTop}>
-            <MenuIcon onClick={openMenu} className={styles.icon_meu_navBarTop}/>
+                <div className={styles.containerIconMenu}>
+                    <AiOutlineMenu className={styles.iconMenu} onClick={openMenu}/>
+                </div>
+
                 <nav className={nav === false ?  styles.navBar_none : styles.navBar_menu}>
                     <div className={styles.info}>
                         <div className={styles.containerIconMenu}>
+                            <AiOutlineMenu className={styles.iconMenu} onClick={openMenu}/>
+                        </div>
+                        {/* <div className={styles.containerIconMenu}>
                             <MenuIcon onClick={openMenu} className={styles.iconMenu} />
                         </div>
                         <div className={styles.containerIconUser}>
-                            <button><AccountCircleIcon className={styles.uSerIcon}/></button>
-                        </div>
+                            <AiOutlineMenu/>
+                        </div> */}
                         <a>Usuário logado:   Vitor Hugo</a>
                     </div>
                     <ul className={styles.navBar_menu_Ul}>
