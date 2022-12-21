@@ -26,7 +26,7 @@ const navBar = (props) => {
                             <MenuIcon onClick={openMenu} className={styles.iconMenu} />
                         </div>
                         <div className={styles.containerIconUser}>
-                            <AccountCircleIcon className={styles.uSerIcon}/>
+                            <button><AccountCircleIcon className={styles.uSerIcon}/></button>
                         </div>
                         <a>Usuário logado:   Vitor Hugo</a>
                     </div>
