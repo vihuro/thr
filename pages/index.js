@@ -14,27 +14,31 @@ const Login = () =>{
 
     const  logar = async () => {
 
-        const login = {
-            'apelido': usuario,
-            'senha':senha
-        }
+        // const login = {
+        //     'apelido': usuario,
+        //     'senha':senha
+        // }
 
-        await api.post(
-            '/login',login
-        )
-        .then(response =>{
-            if(response.data.token !== null){
-                localStorage.setItem('TOKEN', response.data.token)
-                localStorage.setItem('APELIDO', response.data.apelido)
-                localStorage.setItem("NOME_USUÁRIO", response.data.nomeUsuario);
-                console.log(response.data.nomeUsuario);
-                navegar.push('/menu')
-            }
-        })
-        .catch(error =>{
-            alert(error.response.data)
-            navegar.push('/menu')
-        })
+        // await api.post(
+        //     '/login',login
+        // )
+
+
+        // .then(response =>{
+        //     if(response.data.token !== null){
+        //         localStorage.setItem('TOKEN', response.data.token)
+        //         localStorage.setItem('APELIDO', response.data.apelido)
+        //         localStorage.setItem("NOME_USUÁRIO", response.data.nomeUsuario);
+        //         console.log(response.data.nomeUsuario);
+        //         navegar.push('/menu')
+        //     }
+        // })
+        // .catch(error =>{
+        //     // alert(error.response.data)
+            
+        // })
+
+        navegar.push('/menu')
     
     }
 

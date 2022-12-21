@@ -7,7 +7,7 @@ import {HiUserCircle} from 'react-icons/hi';
 
 const navBar = (props) => {
 
-    const [nav, setNav] = useState(true);
+    const [nav, setNav] = useState(false);
 
     const openMenu = () =>{
         if(nav === false){
