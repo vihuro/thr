@@ -1,13 +1,29 @@
-import React, {useState} from "react";
+import React, {use, useEffect, useState} from "react";
 import styles from './navBar.module.css'
 import MenuIcon from '@mui/icons-material/Menu';
+import Decriptor from "../../../service/decriptorToken";
 import {AiOutlineMenu} from 'react-icons/ai';
 import {HiUserCircle} from 'react-icons/hi';
 
 
-const navBar = (props) => {
+const navBar = () => {
 
     const [nav, setNav] = useState(false);
+
+    useEffect(() =>{
+        const token = localStorage.getItem('TOKEN')
+        checktoken(token)
+    },[])
+
+    const checktoken =  (token) =>{
+        if(token === null){
+            console.log('Retornar para o login')
+        }else{
+            console.log(token);
+        }
+
+    }
+     
 
     const openMenu = () =>{
         if(nav === false){
@@ -17,6 +33,7 @@ const navBar = (props) => {
             setNav(false);
         }
     }
+
 
     return(
         <div className={styles.container_menu}>
@@ -33,7 +50,7 @@ const navBar = (props) => {
                         <div className={styles.containerIconUser}>
                             <HiUserCircle className={styles.uSerIcon}/>
                         </div>
-                        <a>Usuário logado:   Vitor Hugo</a>
+                        <a>Usuário logado: token.nameid</a>
                     </div>
                     <ul className={styles.navBar_menu_Ul}>
                         <li className={styles.li_Menu}  tipo='estoque' >Estoque</li>
