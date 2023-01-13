@@ -1,13 +1,13 @@
 .container_menu {
-
-    
+    position: relative;
+    background-color: blueviolet;
 }
 
 .navBarTop{
     background-color: rgb(43, 44, 44 );
     height: 70px;
     width: 100%;
-    display: block;
+    top: 0px;
 }
 .icon_meu_navBarTop{
     color: white;
@@ -28,12 +28,13 @@
     height: 100vh;
     background-color: rgb(43, 44, 44 );
     color: white;
-    position: absolute;
+    position: fixed;
     display: block;
     top: 0px;
     box-shadow: 0px 0px 40px 4px rgb(155, 152, 152);
 
     transition:  2s;
+    
 
 
     transform: translateX(0%) rotateY(0deg);
@@ -54,6 +55,7 @@
     display: block;
     top: 0px;
     box-shadow: 0px 0px 40px 4px rgb(155, 152, 152);
+    
 
     left: 0%;
 
@@ -63,6 +65,11 @@
 
     transition:  2s;
 
+}
+
+.infoMenu{
+    transform: translateX(-40%) rotateY(-90deg);
+    transform-origin: left;
 }
 
 
@@ -102,6 +109,7 @@
     text-align: center;
     margin-top: 10px;
     margin-left: 7px;
+    margin-right: 7px;
 }
 
 .icon{
@@ -119,7 +127,7 @@
 
 .containerIconMenu :hover{
     border-radius: 7px;
-    background-color: rgb(203, 203, 203);
+    background-color: rgb(130, 130, 130);
     transition: 0.7s;
 }
 
@@ -147,6 +155,8 @@
 .ui_subMenu li{
     background-color: rgb(56, 57, 57);
     text-align: left;
+    
+    /* display: none; */
 }
 
 .navBar_menu_Ul{
@@ -154,7 +164,7 @@
 }
 
 .navBar_menu li:hover{
-    background-color: rgb(203, 203, 203);
+    background-color: rgb(130, 130, 130);
     cursor: default;
     transition: .7s;
 }

@@ -4,11 +4,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Decriptor from "../../../service/decriptorToken";
 import {AiOutlineMenu} from 'react-icons/ai';
 import {HiUserCircle} from 'react-icons/hi';
+import {useRouter} from 'next/router';
+import Load from "../spinnerBeat/beatLoader";
 
 
 const navBar = () => {
 
     const [nav, setNav] = useState(false);
+    const [info, setInfo] = useState([]);
+    const [subMenu, setSubMenu] = useState(false);
+    const [title, setTitle] = useState('');
+    const [load,setLoad] = useState(false);
+
+    const navegar = useRouter();
 
     useEffect(() =>{
         const token = localStorage.getItem('TOKEN')
@@ -16,28 +24,34 @@ const navBar = () => {
     },[])
 
     const checktoken =  (token) =>{
+        setLoad(true)
         if(token === null){
-            console.log('Retornar para o login')
+            navegar.push('/');
         }else{
-            console.log(token);
+            setInfo(Decriptor(token));
+            setLoad(false)
         }
 
+    }
+
+    const openSubMenu = (info) =>{
+
+        console.log(info);
+        setTitle(info);
+        setSubMenu((subMenu) => !subMenu)
+        return info;
     }
      
 
     const openMenu = () =>{
-        if(nav === false){
-            setNav(true);
-        }
-        else{
-            setNav(false);
-        }
+        setNav(!nav);
     }
 
 
     return(
         <div className={styles.container_menu}>
-            <div className={styles.navBarTop}>
+            {load ? <Load/> : 
+            <div className={styles.navBarTop}>           
                 <div className={nav === false ? styles.containerIconMenu : styles.containerIconMenuHover}>
                     <AiOutlineMenu className={styles.icon_meu_navBarTop} onClick={openMenu}/>
                 </div>
@@ -50,23 +64,39 @@ const navBar = () => {
                         <div className={styles.containerIconUser}>
                             <HiUserCircle className={styles.uSerIcon}/>
                         </div>
-                        <a>Usuário logado: token.nameid</a>
+                        <a>{info.nameid}</a>
+
                     </div>
                     <ul className={styles.navBar_menu_Ul}>
-                        <li className={styles.li_Menu}  tipo='estoque' >Estoque</li>
-                        <ul className={styles.ui_subMenu}>
-                            <li>Produto em Estoque</li>
-                            <li>Movimentação de Material</li>
-                        </ul>
-                        <li  tipo='expedicao' >Expedição</li>
-                        <ul className={styles.ui_subMenu}>
+                        <li onClick={() => openSubMenu('estoque')} className={styles.li_Menu}  tipo='estoque' >Estoque</li>
+                        {subMenu && title === 'estoque' &&(
+                            <div>
+                                <ul className={styles.ui_subMenu}>
+                                    <li onClick={() =>{
+                                        setLoad(true),
+                                        setNav(false),
+                                        navegar.push('/estoque')
+                                    } }>Produto em Estoque</li>
+                                    <li>Movimentação de Material</li>
+                                </ul>
+                            </div>
+                        )}
+                        <li onClick={() => openSubMenu('expedicao')} tipo='expedicao' >Expedição</li>
+                        {subMenu && title === 'expedicao' && (
+                            <ul className={styles.ui_subMenu}>
                             <li>Packing-List</li>
                             <li>Pedidos - Aberto</li>
                             <li>Histórico de Pedidos</li>
                         </ul>
+
+                        )}
                     </ul>
                 </nav>
-            </div>
+                {load ? <Load/>:
+                null 
+                }
+            </div>}
+
         </div>
     )
 

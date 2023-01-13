@@ -1,0 +1,67 @@
+.ui_button_inline{
+    padding: 7px;
+    border: 1px solid ;
+    background-color: transparent;
+    border-radius: 7px;
+}
+
+.blue{
+    border-color: rgb(51, 140, 236);
+    color: rgb(51, 140, 236);
+}
+
+.blue:hover{
+    background-color: rgb(51, 140, 236);
+    color: white;
+}
+
+.ui_button_inline_larg{
+    padding: 7px;
+    width: 300px;
+    border: 1px solid ;
+    background-color: transparent;
+    border-radius: 7px;
+}
+
+.green{
+    border-color: rgb(26, 196, 134);
+    color: rgb(26, 196, 134);
+}
+
+.red{
+    border-color: rgb(108, 3, 3);
+    color: rgb(108, 3, 3);
+
+}
+
+.green:hover{
+    background-color: rgb(26, 196, 134);
+    color: black;
+
+}
+
+.button_ui_outLine{
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid transparent;
+}
+
+.blue_outLine{
+    background-color: rgb(37, 112, 240);
+    color:white
+}
+
+.blue_outLine:hover{
+    background-color: rgb(0, 77, 211);
+    color:white
+}
+
+.red_outLine{
+    background-color: rgb(240, 37, 37);
+    color:white
+}
+
+.red_outLine:hover{
+    background-color: rgb(255, 0, 0);
+    color:white
+}

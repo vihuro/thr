@@ -1,0 +1,26 @@
+.containerSelect{
+    width: 100%;
+}
+
+.containerInput{
+    border-radius: 7px;
+
+    border:1px solid rgb(130, 130, 130);
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.input{
+    width: 20px;
+    margin-left: 2px;
+    background-color: transparent;
+    padding: 2px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+}
+
+
