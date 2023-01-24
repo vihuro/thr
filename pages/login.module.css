@@ -17,6 +17,14 @@
     background-color: #111;
 }
 
+.spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+    padding: 20px;
+}
+
 .wrap_login{
     width: 390px;
     background-color: #333;

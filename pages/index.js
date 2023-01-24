@@ -79,7 +79,7 @@ const Login = () =>{
 
     return(
         <div className={styles.container}>
-            {load ? <Load/> : 
+            {load ? <div className={styles.spinner}><Load/></div>: 
                 <div className={styles.container_login}>
                     <div className={styles.wrap_login}>
                         <div className={styles.login_form}>

@@ -16,12 +16,14 @@ const navBar = () => {
     const [title, setTitle] = useState('');
     const [load,setLoad] = useState(false);
 
+
     const navegar = useRouter();
 
     useEffect(() =>{
         const token = localStorage.getItem('TOKEN')
         checktoken(token)
     },[])
+
 
     const checktoken =  (token) =>{
         setLoad(true)
@@ -31,12 +33,10 @@ const navBar = () => {
             setInfo(Decriptor(token));
             setLoad(false)
         }
-
     }
 
-    const openSubMenu = (info) =>{
 
-        console.log(info);
+    const openSubMenu = (info) =>{
         setTitle(info);
         setSubMenu((subMenu) => !subMenu)
         return info;
@@ -52,11 +52,11 @@ const navBar = () => {
         <div className={styles.container_menu}>
             {load ? <Load/> : 
             <div className={styles.navBarTop}>           
-                <div className={nav === false ? styles.containerIconMenu : styles.containerIconMenuHover}>
+                <div onClick={openMenu} className={!nav ? styles.containerIconMenu : styles.containerIconMenuHover}>
                     <AiOutlineMenu className={styles.icon_meu_navBarTop} onClick={openMenu}/>
                 </div>
-
-                <nav className={nav === false ?  styles.navBar_none : styles.navBar_menu}>
+                {nav ? <div onClick={openMenu} className={styles.wrapSubMenu}/> : null}
+                <nav className={!nav ? styles.navBar_none  : styles.navBar_menu}>
                     <div className={styles.info}>
                         <div className={nav === true ? styles.containerIconMenu : styles.iconMenuHover}>
                             <AiOutlineMenu className={styles.iconMenu} onClick={openMenu}/>
@@ -92,6 +92,7 @@ const navBar = () => {
                         )}
                     </ul>
                 </nav>
+
                 {load ? <Load/>:
                 null 
                 }

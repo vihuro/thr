@@ -3,7 +3,6 @@ import styles from './menu.module.css'
 import {useRouter} from 'next/router'
 import NavBar from "../../components/UI/navBar/navBar";
 import api from "../../service/api";
-import { style } from "@mui/system";
 import Load from "../../components/UI/spinnerBeat/beatLoader";
 
 
@@ -12,6 +11,7 @@ const Menu = () => {
     
     const [info, setInfo] = useState('');
     const [load, setLoad] = useState(false);
+    const [abrir, setAbrir] = useState(false);
 
     const navegar = useRouter();
 
@@ -27,15 +27,15 @@ const Menu = () => {
         })
     },[]) 
 
+
     return(
-        <div className="container">
-            {load ? <Load/>
-            :
-            <div className="container-menu">
-                {info}
-            </div>
+        <div className={styles.containerMenu}>
+            <NavBar click={abrir} theme={styles.none}/>
+            {load ? <div className={styles.spinner}><Load /> </div>:
+                <div className="container-menu">
+                    {info}
+                </div>
             }
-            <NavBar theme={style.none}/>
         </div>
     )
 

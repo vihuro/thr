@@ -1,11 +1,11 @@
 .container_menu {
     position: relative;
-    background-color: blueviolet;
 }
 
 .navBarTop{
     background-color: rgb(43, 44, 44 );
     height: 70px;
+
     width: 100%;
     top: 0px;
 }
@@ -15,7 +15,6 @@
     text-align: left;
     margin-top: 12px;
     margin-left: 10px;
-
 }
 
 .icon_meu_navBarTop:hover{
@@ -39,8 +38,6 @@
 
     transform: translateX(0%) rotateY(0deg);
     transform-origin: left;
-
-
 }
 
 
@@ -72,6 +69,12 @@
     transform-origin: left;
 }
 
+.wrapSubMenu{
+    background-color: rgb(86, 86, 86 , 0.2);
+    height: calc(100vh - 70px);
+
+}
+
 
 .info {
     text-align: right;
@@ -81,7 +84,6 @@
     height: 100%;
     width: 200px;
     transition: 1.9s;
-
 }
 
 .iconMenuHover{
@@ -93,6 +95,7 @@
 .containerIconMenuHover{
     transform: translateX(0px) rotateY(-90deg);
     width: 170px;
+    height: 100%;
     transition: 1.4s;
     transform-origin: right;
 

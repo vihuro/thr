@@ -5,6 +5,7 @@ import api from '../../service/api'
 import Button from '../../components/UI/button/button'
 import { AiOutlineEdit } from 'react-icons/ai';
 import CadastroEstoque from "../../components/UI/Card/CadastroEstoque";
+import CardWithTable from "../../components/UI/Card/CardTableMovimentacoesEstoque";
 
 
 
@@ -14,6 +15,8 @@ const Estoque = () => {
     const [findIndex, setIndex] = useState(null);
     const [subMenu, setSubMenu] = useState(false);
     const [cardCadastro, setCadatro] = useState(false);
+    const [cardMovimentacoes, setMovimentacoes] = useState(false);
+    const [codigoMaterial, setCodigo] = useState('');
 
     const dateTimeString = (date) => {
         var dateString = new Date(date);
@@ -60,13 +63,14 @@ const Estoque = () => {
 
     return (
         <div className={styles.containerEstoque}>
-                        <div className={styles.button}>
+            <NavBar />
+            <div className={styles.button}>
             {cardCadastro ? <CadastroEstoque onClose={() => {
               setCadatro(false)
-             console.log(cardCadastro)
                     }} /> : null}
             </div>
-        <NavBar />
+            {cardMovimentacoes ? <CardWithTable codigo={codigoMaterial}/> : null}
+
             <div className={styles.containerMenus}>
 
                 <div className={styles.wrapEstoque}>
@@ -96,15 +100,16 @@ const Estoque = () => {
                                         <th>Editar</th>
                                     </tr>
                                 </thead>
+
                                 {estoque.map((repo, index) => {
                                     return (
-                                        <tbody className={styles.tbody}>
-                                            <tr onClick={() => menuInfo(repo, index)} className={styles.tablerow}>
-                                                <td >{repo.codigo}</td>
+                                        <tbody key={repo.id} className={styles.tbody}>
+                                            <tr key={index} onClick={() => {menuInfo(repo, index), console.log(index)}} className={styles.tablerow}>
+                                                <td>{repo.codigo}</td>
                                                 <td style={{ width: '500px' }} className={styles.descricao}>{repo.descricao}</td>
                                                 <td>{repo.unidade}</td>
                                                 <td>{repo.fornecedor}</td>
-                                                <td>{repo.estoque}</td>
+                                                <td>{repo.quantidadeEstoque}</td>
                                                 <td>{repo.estoqueMaximo}</td>
                                                 <td>{repo.estoqueMinimo}</td>
                                                 <td>{repo.estoqueSeguranca}</td>
@@ -115,30 +120,48 @@ const Estoque = () => {
                                                     </div>
                                                 </td>
                                             </tr>
+
                                             {subMenu && index === findIndex && (
-                                                <tr key={index}>
-                                                    <td className={styles.info_estoque_wrap} colspan="13">
+                                                <tr key={repo.id}>
+                                                    {/* <React.Fragment key={repo.codigo} className={styles.info_wrap_info_estoque}>
+                                                    <td className={styles.info_estoque_wrap} colSpan={13}>{repo.usuarioCadastro}</td>
+                                                    <tr key={"UsuarioCadastro"}>Usuário do Cadastro: {repo.usuarioCadastro}</tr>
+                                                    </React.Fragment>
+                                                     */}
+                                                     <td className={styles.info_estoque_wrap} colSpan={13}>
                                                         <div className={styles.info_wrap_info_estoque}>
-                                                            <tr>Usuário do Cadastro: {repo.usuarioCadastro}</tr>
-                                                            <tr>Data e Hora do Cadastro: {dateTimeString(repo.dataHoraCadastro)}</tr>
-                                                            <tr>Data e Hora da alteração: {dateTimeString(repo.dataHoraAlteracao)}</tr>
-                                                            <tr>Grupo - B : {repo.categoriaB}</tr>
-                                                            <tr>Grupo - C : {repo.categoriaC}</tr>
+                                                            <tr key={"UsuarioCadastro"}>Usuário do Cadastro: {repo.usuarioCadastro}</tr>
+                                                            <tr key={"DataHoraCadastro"}>Data e Hora do Cadastro: {dateTimeString(repo.dataHoraCadastro)}</tr>
+                                                            <tr key={"DataHoraAlteracao"}>Data e Hora da alteração: {dateTimeString(repo.dataHoraAlteracao)}</tr>
+                                                            <tr key={"GrupoB"}>Grupo - B : {repo.categoriaB}</tr>
+                                                            <tr key={"GrupoC"}>Grupo - C : {repo.categoriaC}</tr>
                                                             <div className={styles.containerButtonSubMenu}>
                                                                 <Button
                                                                     theme='ui_button_inline_larg'
                                                                     color='green'
                                                                     text='Movimentação de material'
+                                                                    action={() => {
+                                                                        setMovimentacoes(!cardMovimentacoes),
+                                                                        setCodigo(repo.codigo)
+                                                                    }}
                                                                 />
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             )}
-
                                         </tbody>
+
+
                                     )
                                 })}
+
+
+
+
+                                {/* metodo Antigo */}
+
+                                
 
                             </table>
                         </div>
