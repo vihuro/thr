@@ -89,7 +89,7 @@ const Login = () =>{
                                 <span className={styles.focus_input} data-placeholder='Usuário'/>
                             </div>
                             <div className={styles.wrap_input}>
-                                <input className={senha!== '' ? `${styles.has_val} ${styles.input}` : styles.input} onChange={txtSenha_Change}/>
+                                <input type='password' className={senha!== '' ? `${styles.has_val} ${styles.input}` : styles.input} onChange={txtSenha_Change}/>
                                 <span className={styles.focus_input} data-placeholder='Senha'/>
                             </div>
                             <MeuBotao text='Entrar' event={logar} />
