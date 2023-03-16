@@ -1,0 +1,174 @@
+.container_menu {
+    position: relative;
+}
+
+.navBarTop{
+    background-color: rgb(43, 44, 44 );
+    height: 70px;
+
+    width: 100%;
+    top: 0px;
+}
+.icon_meu_navBarTop{
+    color: white;
+    font-size: 40px;
+    text-align: left;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.icon_meu_navBarTop:hover{
+    border-radius: 7px;
+    background-color: rgb(203, 203, 203);
+}
+
+.navBar_menu{
+    width: 200px;
+    height: 100vh;
+    background-color: rgb(43, 44, 44 );
+    color: white;
+    position: fixed;
+    display: block;
+    top: 0px;
+    box-shadow: 0px 0px 40px 4px rgb(155, 152, 152);
+
+    transition:  2s;
+    
+
+
+    transform: translateX(0%) rotateY(0deg);
+    transform-origin: left;
+}
+
+
+
+.navBar_none{
+
+    width: 200px;
+    height: 100vh;
+    background-color: transparent;
+    color: white;
+    position: absolute;
+    display: block;
+    top: 0px;
+    box-shadow: 0px 0px 40px 4px rgb(155, 152, 152);
+    
+
+    left: 0%;
+
+    transform: translateX(-40%) rotateY(-90deg);
+    transform-origin: left;
+
+
+    transition:  2s;
+
+}
+
+.infoMenu{
+    transform: translateX(-40%) rotateY(-90deg);
+    transform-origin: left;
+}
+
+.wrapSubMenu{
+    background-color: rgb(86, 86, 86 , 0.2);
+    height: calc(100vh - 70px);
+
+}
+
+
+.info {
+    text-align: right;
+}
+
+.containerIconMenu{
+    height: 100%;
+    width: 200px;
+    transition: 1.9s;
+}
+
+.iconMenuHover{
+    transform: translateX(-20px) rotateY(0deg);
+    transition: 5s;
+}
+
+
+.containerIconMenuHover{
+    transform: translateX(0px) rotateY(-90deg);
+    width: 170px;
+    height: 100%;
+    transition: 1.4s;
+    transform-origin: right;
+
+}
+
+.containerIconUser{
+    text-align: center;
+}
+
+
+.iconMenu {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.icon{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.uSerIcon {
+    color: rgb(198, 198, 198);
+    align-items: center;
+    font-size: 80px;
+    padding: 2px;
+    margin-bottom: 15px;
+}
+
+.containerIconMenu :hover{
+    border-radius: 7px;
+    background-color: rgb(130, 130, 130);
+    transition: 0.7s;
+}
+
+.navBar_menu a, .navBar_none a{
+    display: block;
+    padding-bottom: 20px;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+
+.navBar_menu li , .navBar_none li{
+    padding: 10px 0px 10px 5px;
+    padding-bottom: 10px;
+    text-align: center;
+
+}
+
+.navBar_menu ul ul , .navBar_none ul ul{
+    /* display: none; */
+    background-color: rgb(43, 208, 226);
+}
+
+.ui_subMenu li{
+    background-color: rgb(56, 57, 57);
+    text-align: left;
+    
+    /* display: none; */
+}
+
+.navBar_menu_Ul{
+    border-top: 1px solid rgb(93, 93, 93);
+}
+
+.navBar_menu li:hover{
+    background-color: rgb(130, 130, 130);
+    cursor: default;
+    transition: .7s;
+}
+
