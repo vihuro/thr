@@ -14,6 +14,7 @@ const Menu = () => {
     const [abrir, setAbrir] = useState(false);
 
     const navegar = useRouter();
+    console.log('aqui tem uma atualização')
 
     useEffect(() =>{
         setLoad(true)
