@@ -1,5 +1,3 @@
-import React from "react";
-
 
 const Decriptor = (token) => {
     const tokenDescription = JSON.parse(Buffer.from(token.split('.')[1],'base64').toString());

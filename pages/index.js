@@ -9,32 +9,26 @@ import Load from "../components/UI/spinnerBeat/beatLoader";
 
 
 const Login = () =>{
-    const [usuario, setUsuario] = useState('');
-    const [senha, setSenha] = useState('');
+    const [login,setLogin] = useState({
+        'apelido':'',
+        'senha':''
+    })
     const [load, setLoad] = useState(false)
 
     const navegar = useRouter();
 
     const  logar = async () => {
         setLoad(true)
-
-        const login = {
-            'apelido': usuario,
-            'senha':senha
-        }
-
         await api.post(
             '/login',login
         )
         .then(response =>{
-            if(response.data.token !== null){
-
-                
-                const token= response.data.token;
+            if(response.data.token !== null){ 
+                const token= response.data;
 
                 var tokenDecriptor = Decriptor(token);
 
-                localStorage.setItem('TOKEN', response.data.token)
+                localStorage.setItem('TOKEN', response.data)
 
                 console.log('Esse é o valor de token no localStorage: ' + localStorage.getItem('TOKEN'));
 
@@ -59,7 +53,7 @@ const Login = () =>{
             
         })
         .catch(error =>{
-             console.log(error.response.data)
+             console.log(error)
              setLoad(false)
             
         })
@@ -83,13 +77,13 @@ const Login = () =>{
                 <div className={styles.container_login}>
                     <div className={styles.wrap_login}>
                         <div className={styles.login_form}>
-                            <span className={styles.title}>Seja bem vindo!</span>
+                            <span className={styles.title}>Seja bem vindo ao portal THR!</span>
                             <div className={styles.wrap_input}>
-                                <input className={usuario!== '' ? `${styles.has_val} ${styles.input}` : styles.input} onChange={txtNome_Change}/>
+                                <input className={login.apelido!== '' ? `${styles.has_val} ${styles.input}` : styles.input} onChange={(e) => setLogin({...login,apelido:e.target.value})}/>
                                 <span className={styles.focus_input} data-placeholder='Usuário'/>
                             </div>
                             <div className={styles.wrap_input}>
-                                <input type='password' className={senha!== '' ? `${styles.has_val} ${styles.input}` : styles.input} onChange={txtSenha_Change}/>
+                                <input type='password' className={login.senha!== '' ? `${styles.has_val} ${styles.input}` : styles.input} onChange={(e) => setLogin({...login,senha:e.target.value})}/>
                                 <span className={styles.focus_input} data-placeholder='Senha'/>
                             </div>
                             <MeuBotao text='Entrar' event={logar} />

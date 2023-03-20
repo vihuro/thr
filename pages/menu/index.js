@@ -14,7 +14,7 @@ const Menu = () => {
     const [abrir, setAbrir] = useState(false);
 
     const navegar = useRouter();
-    console.log('agora não tem mais')
+
 
     useEffect(() =>{
         setLoad(true)

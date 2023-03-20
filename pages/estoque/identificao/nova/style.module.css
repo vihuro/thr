@@ -1,0 +1,51 @@
+.page{
+    padding:20px;
+    display: flex;
+    width: 900px;;
+    height:900px;
+    margin-top:10px;
+
+
+}
+.header{
+    width: 100%;
+    
+}
+.column{
+    width:100%;
+    height: auto;
+    display:flex;
+    align-items:center;
+    border: 1px solid black;
+}
+
+.cell{
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-right: 1px solid black;
+    height: auto;
+}
+
+.columnDescription{
+    width: 100%;
+    display: flex;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+@media print{
+    .body{
+        margin:0;
+        padding:0;
+    }
+    @page{
+        margin: 0;
+        
+    }
+    .header,.footer,.nav,.aside{
+        display: none;
+    }
+}
+
